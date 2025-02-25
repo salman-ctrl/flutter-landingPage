@@ -68,8 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   const Icon(Icons.favorite),
-                  const Icon(Icons.favorite),
-                  const Icon(Icons.favorite),
+                  const Icon(Icons.label),
+                  const Icon(Icons.h_mobiledata),
                 ],
               ),
             ),
@@ -85,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
             tooltip: 'Decrement',
             child: const Icon(Icons.remove), // Ubah ikon ke remove
           ),
+          const SizedBox(width: 35), // Jarak antara tombol
           FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Increment',
