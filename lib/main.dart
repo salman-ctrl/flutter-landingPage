@@ -85,10 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
             tooltip: 'Decrement',
             child: const Icon(Icons.remove), // Ubah ikon ke remove
           ),
-          const SizedBox(width: 35), // Jarak antara tombol
           FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Increment',
+            child: const Icon(Icons.add),
           ),
         ],
       ),
