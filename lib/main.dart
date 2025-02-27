@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: const [
-                  Icon(Icons.search, color: Colors.white),
+                  Icon(Icons.search, color: Colors.black),
                   SizedBox(width: 10),
                   Expanded(
                     child: TextField(
