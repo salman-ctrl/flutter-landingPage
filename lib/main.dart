@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
               "Rekomendasi",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 0),
             // Durian Cards with Images
             Expanded(
               child: GridView.builder(
@@ -124,12 +124,13 @@ class HomeScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.asset(
-                              'assets/durian_$index.png',
+                              'assets/durian-1.jpg',
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         Container(
+                          width: double.infinity,
                           padding: const EdgeInsets.all(8),
                           decoration: const BoxDecoration(
                             color: Colors.black,
@@ -169,8 +170,8 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.yellow,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.yellow,
+        unselectedItemColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: const [
