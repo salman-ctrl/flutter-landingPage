@@ -202,7 +202,7 @@ class FilterChip extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: TextStyle(color: isActive ? Colors.white : Colors.white),
+          style: TextStyle(color: isActive ? Colors.black : Colors.white),
         ),
       ),
     );
