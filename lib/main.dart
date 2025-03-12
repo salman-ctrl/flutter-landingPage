@@ -185,6 +185,10 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class FilterChip extends StatelessWidget {
+  final String label;
+  final bool isActive;
+  const FilterChip({super.key, required this.label, this.isActive = false});
 
   @override
   Widget build(BuildContext context) {
