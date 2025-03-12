@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Painan, Indonesia",
+                      "padang, Indonesia",
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   ],
