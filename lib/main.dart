@@ -129,16 +129,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(8),
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                            ),
-                          ),
+                       
                           child: const Column(
                             children: [
                               Text(
