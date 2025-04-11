@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'favorite_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,15 +12,67 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Durian App',
+      title: 'Radja Durian',
       theme: ThemeData.dark(),
       home: const HomeScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  // List of durian data
+  final List<Map<String, dynamic>> _durianList = [
+    {
+      'name': 'Durian Musangking',
+      'image': 'assets/durian-1.jpg',
+      'rating': 4.8,
+      'reviews': 234,
+      'price': 'Rp. 20.000',
+    },
+    {
+      'name': 'Durian Montong',
+      'image': 'assets/montong.jpeg',
+      'rating': 4.5,
+      'reviews': 189,
+      'price': 'Rp. 18.500',
+    },
+    {
+      'name': 'Durian Bawor',
+      'image': 'assets/images.jpg',
+      'rating': 4.7,
+      'reviews': 205,
+      'price': 'Rp. 22.000',
+    },
+    {
+      'name': 'Durian Petruk',
+      'image': 'assets/download.jpg',
+      'rating': 4.3,
+      'reviews': 156,
+      'price': 'Rp. 19.500',
+    },
+  ];
+
+  void _onItemTapped(int index) {
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const FavoritePage()),
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +154,7 @@ class HomeScreen extends StatelessWidget {
               "Rekomendasi",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 0),
+            const SizedBox(height: 10),
             // Durian Cards with Images
             Expanded(
               child: GridView.builder(
@@ -111,8 +164,9 @@ class HomeScreen extends StatelessWidget {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),
-                itemCount: 4,
+                itemCount: _durianList.length,
                 itemBuilder: (context, index) {
+                  final durian = _durianList[index];
                   return Container(
                     decoration: BoxDecoration(
                       color: Colors.black26,
@@ -122,10 +176,14 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
                             child: Image.asset(
-                              'assets/durian-1.jpg',
+                              durian['image'],
                               fit: BoxFit.cover,
+                              width: double.infinity,
                             ),
                           ),
                         ),
@@ -139,19 +197,20 @@ class HomeScreen extends StatelessWidget {
                               bottomRight: Radius.circular(10),
                             ),
                           ),
-                          child: const Column(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Durian X",
-                                style: TextStyle(
+                                durian['name'],
+                                style: const TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
                                 ),
                               ),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Text(
-                                "⭐ 3.6 (234) | Rp. 20.000",
-                                style: TextStyle(
+                                "⭐ ${durian['rating']} (${durian['reviews']}) | ${durian['price']}",
+                                style: const TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
                                 ),
@@ -169,11 +228,13 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.black,
         selectedItemColor: Colors.yellow,
         unselectedItemColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: ""),

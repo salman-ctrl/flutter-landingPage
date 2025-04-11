@@ -26,3 +26,6 @@ flutter:
   # Menambahkan gambar ke dalam proyek
   assets:
     - assets/durian-1.jpg
+    - assets/images.jpg
+    - assets/download.jpg
+    - assets\montong.jpeg
